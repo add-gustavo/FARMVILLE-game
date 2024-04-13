@@ -1,2 +1,1 @@
-# shellscript
-introdução ao shellscript
+# projetos
