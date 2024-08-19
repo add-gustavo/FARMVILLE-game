@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvwvfs4q348rv"]
+
+[ext_resource type="PackedScene" uid="uid://dpma8jvxq60o" path="res://ground.tscn" id="1_ckogc"]
+
+[node name="PRINCIPAL" type="Node2D"]
+
+[node name="cenário_ground" parent="." instance=ExtResource("1_ckogc")]
