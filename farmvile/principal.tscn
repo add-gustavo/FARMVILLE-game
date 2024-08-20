@@ -1,7 +1,87 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvwvfs4q348rv"]
+[gd_scene load_steps=14 format=3 uid="uid://bvwvfs4q348rv"]
 
 [ext_resource type="PackedScene" uid="uid://dpma8jvxq60o" path="res://ground.tscn" id="1_ckogc"]
+[ext_resource type="Script" path="res://ground.gd" id="2_m28ha"]
+[ext_resource type="PackedScene" uid="uid://c6lpnmf036dny" path="res://didi.tscn" id="2_npfcx"]
+[ext_resource type="Script" path="res://didi.gd" id="4_nkngb"]
+[ext_resource type="Texture2D" uid="uid://3imahq7e8ol3" path="res://Crop_Spritesheet.png" id="5_niv00"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnuqd"]
+atlas = ExtResource("5_niv00")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py7qa"]
+atlas = ExtResource("5_niv00")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v246r"]
+atlas = ExtResource("5_niv00")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbsdx"]
+atlas = ExtResource("5_niv00")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcksf"]
+atlas = ExtResource("5_niv00")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1txr"]
+atlas = ExtResource("5_niv00")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khsv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnuqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py7qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v246r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbsdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcksf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1txr")
+}],
+"loop": true,
+"name": &"tomate",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2flp"]
+size = Vector2(14.25, 15)
 
 [node name="PRINCIPAL" type="Node2D"]
 
 [node name="cenário_ground" parent="." instance=ExtResource("1_ckogc")]
+position = Vector2(9, 51)
+script = ExtResource("2_m28ha")
+
+[node name="Didi" parent="." instance=ExtResource("2_npfcx")]
+position = Vector2(199, 188)
+script = ExtResource("4_nkngb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(213, 186)
+zoom = Vector2(3, 3)
+
+[node name="tomate" type="Area2D" parent="."]
+position = Vector2(70, -63)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="tomate"]
+position = Vector2(171, 256)
+sprite_frames = SubResource("SpriteFrames_khsv6")
+animation = &"tomate"
+autoplay = "tomate"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tomate"]
+position = Vector2(171.125, 255.5)
+shape = SubResource("RectangleShape2D_x2flp")
