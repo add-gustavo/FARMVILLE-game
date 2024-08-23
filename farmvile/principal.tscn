@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvwvfs4q348rv"]
+[gd_scene load_steps=19 format=3 uid="uid://bvwvfs4q348rv"]
 
 [ext_resource type="PackedScene" uid="uid://dpma8jvxq60o" path="res://ground.tscn" id="1_ckogc"]
 [ext_resource type="Script" path="res://ground.gd" id="2_m28ha"]
 [ext_resource type="PackedScene" uid="uid://c6lpnmf036dny" path="res://didi.tscn" id="2_npfcx"]
 [ext_resource type="Script" path="res://didi.gd" id="4_nkngb"]
 [ext_resource type="Texture2D" uid="uid://3imahq7e8ol3" path="res://Crop_Spritesheet.png" id="5_niv00"]
+[ext_resource type="Script" path="res://tomate.gd" id="5_wpyju"]
+[ext_resource type="Texture2D" uid="uid://dpxvjbbhr5c1h" path="res://spring tilemap.png" id="7_hnv3h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnuqd"]
 atlas = ExtResource("5_niv00")
@@ -59,29 +61,79 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2flp"]
 size = Vector2(14.25, 15)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_egqbu"]
+atlas = ExtResource("7_hnv3h")
+region = Rect2(0, 128, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li1tj"]
+atlas = ExtResource("7_hnv3h")
+region = Rect2(0, 144, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6adoh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egqbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li1tj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="PRINCIPAL" type="Node2D"]
 
 [node name="cenário_ground" parent="." instance=ExtResource("1_ckogc")]
-position = Vector2(9, 51)
+position = Vector2(55, 41)
 script = ExtResource("2_m28ha")
 
 [node name="Didi" parent="." instance=ExtResource("2_npfcx")]
+z_index = 1
 position = Vector2(199, 188)
 script = ExtResource("4_nkngb")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(213, 186)
+[node name="Camera2D" type="Camera2D" parent="Didi"]
+position = Vector2(14, -2)
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
 
 [node name="tomate" type="Area2D" parent="."]
 position = Vector2(70, -63)
+monitorable = false
+script = ExtResource("5_wpyju")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="tomate"]
 position = Vector2(171, 256)
 sprite_frames = SubResource("SpriteFrames_khsv6")
 animation = &"tomate"
-autoplay = "tomate"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tomate"]
 position = Vector2(171.125, 255.5)
 shape = SubResource("RectangleShape2D_x2flp")
+
+[node name="pedra" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(586, 404)
+sprite_frames = SubResource("SpriteFrames_6adoh")
+autoplay = "default"
+frame_progress = 0.518832
+
+[node name="pedra2" type="AnimatedSprite2D" parent="."]
+position = Vector2(596, 397)
+sprite_frames = SubResource("SpriteFrames_6adoh")
+autoplay = "default"
+frame_progress = 0.553922
+
+[node name="dados" type="CanvasLayer" parent="."]
+
+[node name="semente_tomate" type="Label" parent="dados"]
+offset_left = 16.0
+offset_top = 1.0
+offset_right = 167.0
+offset_bottom = 24.0
+text = "
+"
+
+[connection signal="body_entered" from="tomate" to="tomate" method="_on_body_entered"]
