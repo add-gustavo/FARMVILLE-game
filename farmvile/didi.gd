@@ -14,3 +14,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("andando_esquerda")
 	if Input.is_action_just_pressed("ui_right"):
 		$AnimatedSprite2D.play("andando_direita")
+
+
+func _on_semente_2_body_entered(body: Node2D) -> void:
+	Dados.semente += 1
