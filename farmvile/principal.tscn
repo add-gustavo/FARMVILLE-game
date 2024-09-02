@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bvwvfs4q348rv"]
+[gd_scene load_steps=92 format=3 uid="uid://bvwvfs4q348rv"]
 
 [ext_resource type="PackedScene" uid="uid://dpma8jvxq60o" path="res://ground.tscn" id="1_ckogc"]
 [ext_resource type="PackedScene" uid="uid://c6lpnmf036dny" path="res://didi.tscn" id="2_npfcx"]
@@ -101,23 +101,95 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2flp"]
 size = Vector2(12, 12.5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a5qqw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_acgi4"]
 atlas = ExtResource("7_wokef")
-region = Rect2(0, 192, 16, 16)
+region = Rect2(0, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x80tw"]
+atlas = ExtResource("7_wokef")
+region = Rect2(0, 160, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4fen3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a5qqw")
+"texture": SubResource("AtlasTexture_acgi4")
 }],
 "loop": true,
-"name": &"default",
+"name": &"bau-aberto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x80tw")
+}],
+"loop": true,
+"name": &"bau-fechado",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lerha"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyvq1"]
+size = Vector2(12, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjk1g"]
+atlas = ExtResource("7_wokef")
+region = Rect2(0, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umj7v"]
+atlas = ExtResource("7_wokef")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fd4u5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjk1g")
+}],
+"loop": true,
+"name": &"balde_cheio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umj7v")
+}],
+"loop": true,
+"name": &"balde_vazio",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jokqm"]
 radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nfaa"]
+atlas = ExtResource("7_wokef")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xojo6"]
+atlas = ExtResource("7_wokef")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f554m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nfaa")
+}],
+"loop": true,
+"name": &"balde_cheio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xojo6")
+}],
+"loop": true,
+"name": &"balde_vazio",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8bev1"]
+radius = 8.06226
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_egqbu"]
 atlas = ExtResource("7_hnv3h")
@@ -560,7 +632,7 @@ zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
 [node name="diaenoite" type="ColorRect" parent="Didi/Camera2D"]
-self_modulate = Color(0.443546, 0.282531, 0.0211241, 0.251377)
+self_modulate = Color(0.956863, 0.607843, 0, 0)
 offset_left = -357.0
 offset_top = -171.0
 offset_right = 360.0
@@ -602,17 +674,38 @@ offset_bottom = 24.0
 text = "
 "
 
-[node name="semente_tomate" type="Area2D" parent="Plantações"]
+[node name="bau-sementes" type="Area2D" parent="Plantações"]
 position = Vector2(197, 171)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Plantações/semente_tomate"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Plantações/bau-sementes"]
 position = Vector2(-109, -18)
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_4fen3")
+animation = &"bau-aberto"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantações/semente_tomate"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantações/bau-sementes"]
 position = Vector2(-109, -18)
-shape = SubResource("CircleShape2D_lerha")
+shape = SubResource("RectangleShape2D_cyvq1")
+
+[node name="balde-agua" type="Area2D" parent="Plantações"]
+position = Vector2(106, 153)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Plantações/balde-agua"]
+sprite_frames = SubResource("SpriteFrames_fd4u5")
+animation = &"balde_cheio"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantações/balde-agua"]
+shape = SubResource("CircleShape2D_jokqm")
+
+[node name="balde-legumes" type="Area2D" parent="Plantações"]
+position = Vector2(70, 153)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Plantações/balde-legumes"]
+sprite_frames = SubResource("SpriteFrames_f554m")
+animation = &"balde_cheio"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantações/balde-legumes"]
+shape = SubResource("CircleShape2D_8bev1")
 
 [node name="Cenário_animações" type="Node" parent="."]
 
@@ -633,7 +726,7 @@ frame_progress = 0.553922
 
 [node name="joaninha-vermelha" type="Area2D" parent="Animais"]
 position = Vector2(69, 56)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Animais/joaninha-vermelha"]
 position = Vector2(170, 275)
@@ -653,7 +746,7 @@ root_node = NodePath("../../..")
 
 [node name="joaninha-amarela" type="Area2D" parent="Animais"]
 position = Vector2(104, 175)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.5, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animais/joaninha-amarela"]
 
@@ -670,4 +763,7 @@ shape = SubResource("CircleShape2D_cmvh3")
 
 [connection signal="body_entered" from="Plantações/tomate" to="Plantações/tomate" method="_on_body_entered"]
 [connection signal="body_exited" from="Plantações/tomate" to="Plantações/tomate" method="_on_body_exited"]
-[connection signal="body_entered" from="Plantações/semente_tomate" to="Didi" method="_on_semente_2_body_entered"]
+[connection signal="body_entered" from="Plantações/bau-sementes" to="Didi" method="_on_bausementes_body_entered"]
+[connection signal="body_exited" from="Plantações/bau-sementes" to="Didi" method="_on_bausementes_body_exited"]
+[connection signal="body_entered" from="Plantações/balde-agua" to="Didi" method="_on_baldeagua_body_entered"]
+[connection signal="body_exited" from="Plantações/balde-agua" to="Didi" method="_on_baldeagua_body_exited"]

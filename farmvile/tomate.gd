@@ -1,38 +1,49 @@
 extends Area2D
-var terra = 0
-var plantar = 0
-var planta = 0
+#trava para estar no local
+var trava_terra = 0
+#trava para apertar o botao
+var botao = 0
+#trava para caso já houver uma planta no local
+var trava_planta = 0
+#trava para caso já estiver pronta para colheita
+var leguminosa = 0
 func _ready() -> void:
 	hide()
 	
 func _process(delta: float) -> void:
-	$"../semente/semente_tomate".text = str(Dados.semente)
+	#cabeçalho
+	$"../semente/semente_tomate".text = str("sementes-tomate: ",Dados.semente,"\n","agua: ", Dados.agua, "\n", "Tomate: ", Dados.tomate)
+	#trava de plantação
 	if Input.is_action_just_pressed("ui_accept"):
-		plantar = 1
+		botao = 1
 	else:
-		plantar = 0
-	if Dados.semente >= 1 and plantar == 1 and terra == 1 and planta == 0:
-		show()
-		planta = 1
-		Dados.semente -= 1
+		botao = 0
+	#condição para sementes
+	if Dados.semente > 0 and botao == 1 and trava_terra == 1 and trava_planta == 0:
 		$AnimatedSprite2D.frame = 0
-		await get_tree().create_timer(3.0).timeout
-		$AnimatedSprite2D.frame = 1
-		await get_tree().create_timer(3.0).timeout
-		$AnimatedSprite2D.frame = 2
-		await get_tree().create_timer(3.0).timeout
-		$AnimatedSprite2D.frame = 3
-		await get_tree().create_timer(3.0).timeout
-		$AnimatedSprite2D.frame = 4
-		await get_tree().create_timer(3.0).timeout
-		planta = 0
-	pass
+		show()
+		trava_planta = 1
+		Dados.semente -= 1
+		botao = 0 
+		
+	#condição para crescimento
+		
+	if Dados.agua > 0 and botao == 1 and trava_terra == 1:
+		Dados.agua -= 1
+		for i  in range(1,5):
+			await get_tree().create_timer(3.0).timeout
+			$AnimatedSprite2D.frame = i
+		leguminosa = 1
+	if leguminosa == 1 and botao == 1 and trava_terra == 1:
+		$AnimatedSprite2D.frame = 5
+		await get_tree().create_timer(1.0).timeout
+		hide()
+		Dados.tomate +=1
+		trava_planta = 0
+		leguminosa = 0
 
 func _on_body_entered(body: Node2D) -> void:
-	terra = 1
-	pass # Replace with function body.
-
+	trava_terra = 1
+	
 func _on_body_exited(body: Node2D) -> void:
-	terra = 0
-	plantar = 0
-	pass # Replace with function body.
+	trava_terra = 0
