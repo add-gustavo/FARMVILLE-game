@@ -6,11 +6,11 @@ func _ready() -> void:
 	hide()
 	
 func _process(delta: float) -> void:
+	$"../semente/semente_tomate".text = str(Dados.semente)
 	if Input.is_action_just_pressed("ui_accept"):
 		plantar = 1
 	else:
 		plantar = 0
-	$"../semente/semente_tomate".text = str(Dados.semente)
 	if Dados.semente >= 1 and plantar == 1 and terra == 1 and planta == 0:
 		show()
 		planta = 1
