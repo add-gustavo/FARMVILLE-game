@@ -725,7 +725,7 @@ frame_progress = 0.553922
 [node name="Animais" type="Node" parent="."]
 
 [node name="joaninha-vermelha" type="Area2D" parent="Animais"]
-position = Vector2(69, 56)
+position = Vector2(35, 38)
 scale = Vector2(0.5, 0.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Animais/joaninha-vermelha"]

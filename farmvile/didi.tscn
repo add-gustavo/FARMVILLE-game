@@ -167,8 +167,7 @@ size = Vector2(14, 19)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jlap5")
-animation = &"andando_direita"
-autoplay = "parado"
+animation = &"parado"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1.5)
