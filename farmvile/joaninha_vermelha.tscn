@@ -1,0 +1,222 @@
+[gd_scene load_steps=30 format=3 uid="uid://c1s7sjkhmj3ty"]
+
+[ext_resource type="Texture2D" uid="uid://daqfwbxsxqw4j" path="res://lady bird-Sheet.png" id="1_yohaa"]
+[ext_resource type="Texture2D" uid="uid://htlauc7g4kr2" path="res://lady bird-Sheet-1.png (3).png" id="2_egs5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpqpp"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkdyl"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5ho4"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7myf"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilhll"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufb1i"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uad7x"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4fy6"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsff1"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhdxx"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdx3c"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ootvc"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86rig"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4omxv"]
+atlas = ExtResource("2_egs5t")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ig6r"]
+atlas = ExtResource("2_egs5t")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb4at"]
+atlas = ExtResource("2_egs5t")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvnew"]
+atlas = ExtResource("2_egs5t")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsr4u"]
+atlas = ExtResource("2_egs5t")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk15s"]
+atlas = ExtResource("2_egs5t")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t056r"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohgkr"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu885"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up8gt"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi7ed"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liwpt"]
+atlas = ExtResource("1_yohaa")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwbpv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpqpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkdyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5ho4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7myf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilhll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufb1i")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uad7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4fy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsff1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhdxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdx3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ootvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86rig")
+}],
+"loop": true,
+"name": &"pulando",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4omxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ig6r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb4at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvnew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsr4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk15s")
+}],
+"loop": true,
+"name": &"voando-alto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t056r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohgkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu885")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up8gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi7ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liwpt")
+}],
+"loop": true,
+"name": &"voando-baixo",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ptst"]
+radius = 2.8714
+
+[node name="joaninha_vermelha" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(170, 275)
+sprite_frames = SubResource("SpriteFrames_vwbpv")
+animation = &"parado"
+autoplay = "parado"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(170, 275)
+scale = Vector2(3.5, 3.5)
+shape = SubResource("CircleShape2D_1ptst")
+one_way_collision_margin = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../../..")

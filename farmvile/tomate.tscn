@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://in06nygbyuob"]
+
+[ext_resource type="Texture2D" uid="uid://3imahq7e8ol3" path="res://Crop_Spritesheet.png" id="1_5pyhx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnuqd"]
+atlas = ExtResource("1_5pyhx")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py7qa"]
+atlas = ExtResource("1_5pyhx")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v246r"]
+atlas = ExtResource("1_5pyhx")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbsdx"]
+atlas = ExtResource("1_5pyhx")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcksf"]
+atlas = ExtResource("1_5pyhx")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1txr"]
+atlas = ExtResource("1_5pyhx")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjuwn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnuqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py7qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v246r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbsdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcksf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1txr")
+}],
+"loop": true,
+"name": &"tomate",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhg1l"]
+size = Vector2(14.875, 16.25)
+
+[node name="tomate" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(117, 215)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_vjuwn")
+animation = &"tomate"
+frame = 4
+frame_progress = 0.324984
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(116.95, 214.5)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_uhg1l")

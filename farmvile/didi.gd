@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 		Dados.agua +=1 
 	
 	if semente == 1 and Input.is_action_just_pressed("ui_accept"):
-		Dados.semente +=1 
+		Dados.semente_tomate +=1 
 # setup direction of movement
 	var direction = Input.get_vector("left", "right", "up", "down")
 # stop diagonal movement by listening for input then setting axis to zero
@@ -27,10 +27,16 @@ func _physics_process(delta: float) -> void:
 # setup the actual movement
 	velocity = (direction * speed)
 	move_and_slide() 
-	if Input.is_action_just_pressed("ui_left"):
-		$AnimatedSprite2D.play("andando_esquerda")
-	if Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("left"):
+		$AnimatedSprite2D.play("andando_esquerda") 
+	if Input.is_action_just_pressed("right"):
 		$AnimatedSprite2D.play("andando_direita")
+	if Input.is_action_just_pressed("up") and Input.is_action_just_released("right"):
+		$AnimatedSprite2D.play("andando_direita")
+	if Input.is_action_just_pressed("down") and Input.is_action_just_released("left"):
+		$AnimatedSprite2D.play("andando_esquerda")
+	
+	
 
 
 func _on_baldeagua_body_entered(body: Node2D) -> void:
