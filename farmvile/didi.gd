@@ -1,12 +1,11 @@
 
 extends CharacterBody2D
-@onready var _animated_sprite = $AnimatedSprite2D
 # speed in pixels/sec
 var speed = 100
 var agua = 0
 var semente = 0
  
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if agua == 1 and Input.is_action_just_pressed("ui_accept"):
 		Dados.agua +=1 
 	
@@ -27,26 +26,23 @@ func _physics_process(delta: float) -> void:
 # setup the actual movement
 	velocity = (direction * speed)
 	move_and_slide() 
-	if Input.is_action_just_pressed("left"):
-		$AnimatedSprite2D.play("andando_esquerda") 
-	if Input.is_action_just_pressed("right"):
-		$AnimatedSprite2D.play("andando_direita")
-	if Input.is_action_just_pressed("up") and Input.is_action_just_released("right"):
-		$AnimatedSprite2D.play("andando_direita")
-	if Input.is_action_just_pressed("down") and Input.is_action_just_released("left"):
+		
+	
+	if Input.is_action_just_pressed("right") || Input.is_action_just_pressed("up"):
+		$AnimatedSprite2D.play("andando_direita") 
+	elif Input.is_action_just_pressed("left") || Input.is_action_just_pressed("down"):
 		$AnimatedSprite2D.play("andando_esquerda")
 	
-	
 
 
-func _on_baldeagua_body_entered(body: Node2D) -> void:
+func _on_baldeagua_body_entered(_body: Node2D) -> void:
 	agua = 1
-func _on_baldeagua_body_exited(body: Node2D) -> void:
+func _on_baldeagua_body_exited(_body: Node2D) -> void:
 	agua = 0
 
-func _on_bausementes_body_entered(body: Node2D) -> void:
+func _on_bausementes_body_entered(_body: Node2D) -> void:
 	semente = 1
-func _on_bausementes_body_exited(body: Node2D) -> void:
+func _on_bausementes_body_exited(_body: Node2D) -> void:
 	semente = 0
 
 #func _on_baldelegumes_body_entered(body: Node2D) -> void:

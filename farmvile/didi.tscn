@@ -164,6 +164,8 @@ animations = [{
 size = Vector2(14, 19)
 
 [node name="Didi" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jlap5")

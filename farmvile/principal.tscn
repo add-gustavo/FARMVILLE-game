@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://bvwvfs4q348rv"]
+[gd_scene load_steps=35 format=3 uid="uid://bvwvfs4q348rv"]
 
 [ext_resource type="PackedScene" uid="uid://dpma8jvxq60o" path="res://ground.tscn" id="1_ckogc"]
+[ext_resource type="Script" path="res://principal.gd" id="1_o5vv5"]
 [ext_resource type="PackedScene" uid="uid://c6lpnmf036dny" path="res://didi.tscn" id="2_npfcx"]
 [ext_resource type="Script" path="res://didi.gd" id="4_nkngb"]
 [ext_resource type="Texture2D" uid="uid://3imahq7e8ol3" path="res://Crop_Spritesheet.png" id="5_niv00"]
@@ -18,7 +19,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 "
 
@@ -211,13 +212,13 @@ animations = [{
 
 [node name="PRINCIPAL" type="Node2D"]
 position = Vector2(-1, 0)
+script = ExtResource("1_o5vv5")
 
 [node name="cenário_ground" parent="." instance=ExtResource("1_ckogc")]
 position = Vector2(1, 0)
 script = SubResource("GDScript_frqgn")
 
 [node name="Didi" parent="." instance=ExtResource("2_npfcx")]
-z_index = 1
 position = Vector2(602, 129)
 script = ExtResource("4_nkngb")
 
@@ -305,7 +306,6 @@ shape = SubResource("CircleShape2D_8bev1")
 [node name="Cenário_animações" type="Node" parent="."]
 
 [node name="pedra-agua" type="AnimatedSprite2D" parent="Cenário_animações"]
-z_index = 1
 position = Vector2(584, 344)
 sprite_frames = SubResource("SpriteFrames_6adoh")
 autoplay = "default"

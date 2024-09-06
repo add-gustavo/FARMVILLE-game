@@ -10,7 +10,7 @@ var plantio = 0
 func _ready() -> void:
 	hide()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#cabeçalho
 	$"../semente/semente_tomate".text = str("sementes-tomate: ",Dados.semente_tomate,"\n","agua: ", Dados.agua, "\n", "Tomate: ", Dados.tomate)
 	#trava de plantação
@@ -42,8 +42,8 @@ func _process(delta: float) -> void:
 		trava_planta = 0
 		plantio = 0
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	trava_terra = 1
 	
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	trava_terra = 0
