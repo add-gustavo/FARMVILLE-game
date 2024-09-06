@@ -67,14 +67,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucwqk"]
-size = Vector2(20, 14)
+size = Vector2(16, 15)
 
 [node name="canteiro" type="Area2D"]
+position = Vector2(143, 24)
 script = SubResource("GDScript_2264k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tluhd")
-animation = &"canto_esquerda"
+animation = &"meio"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 7.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ucwqk")

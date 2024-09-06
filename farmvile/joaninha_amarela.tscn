@@ -210,9 +210,11 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_jiinb")
-animation = &"parado"
+animation = &"voando-baixo"
 autoplay = "parado"
+frame_progress = 0.635969
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_p2exp")

@@ -1,5 +1,6 @@
 extends Node
 var semente_tomate = 0
+var semente_abobora = 0
 var agua = 0
 var tomate = 0
 

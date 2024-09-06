@@ -56,6 +56,7 @@ animations = [{
 size = Vector2(14.875, 16.25)
 
 [node name="tomate" type="Area2D"]
+z_index = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(117, 215)

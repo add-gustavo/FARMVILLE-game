@@ -164,6 +164,7 @@ animations = [{
 size = Vector2(11, 3)
 
 [node name="Didi" type="CharacterBody2D"]
+z_index = 1
 z_as_relative = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
