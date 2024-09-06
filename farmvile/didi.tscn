@@ -161,10 +161,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drtcb"]
-size = Vector2(14, 19)
+size = Vector2(11, 3)
 
 [node name="Didi" type="CharacterBody2D"]
-z_index = 1
 z_as_relative = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -172,5 +171,6 @@ sprite_frames = SubResource("SpriteFrames_jlap5")
 animation = &"parado"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 1.5)
+z_index = 1
+position = Vector2(1.5, 9.5)
 shape = SubResource("RectangleShape2D_drtcb")

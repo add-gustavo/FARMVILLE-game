@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bvwvfs4q348rv"]
+[gd_scene load_steps=31 format=3 uid="uid://bvwvfs4q348rv"]
 
 [ext_resource type="PackedScene" uid="uid://dpma8jvxq60o" path="res://ground.tscn" id="1_ckogc"]
 [ext_resource type="Script" path="res://principal.gd" id="1_o5vv5"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://didi.gd" id="4_nkngb"]
 [ext_resource type="Texture2D" uid="uid://3imahq7e8ol3" path="res://Crop_Spritesheet.png" id="5_niv00"]
 [ext_resource type="Script" path="res://tomate.gd" id="5_wpyju"]
-[ext_resource type="Texture2D" uid="uid://dpxvjbbhr5c1h" path="res://spring tilemap.png" id="7_hnv3h"]
 [ext_resource type="Texture2D" uid="uid://chjym6rfvku68" path="res://summer and spring items.png" id="7_wokef"]
 
 [sub_resource type="GDScript" id="GDScript_frqgn"]
@@ -188,28 +187,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8bev1"]
 radius = 8.06226
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_egqbu"]
-atlas = ExtResource("7_hnv3h")
-region = Rect2(0, 128, 17, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_li1tj"]
-atlas = ExtResource("7_hnv3h")
-region = Rect2(0, 144, 17, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6adoh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_egqbu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_li1tj")
-}],
-"loop": true,
-"name": &"default",
-"speed": 3.0
-}]
-
 [node name="PRINCIPAL" type="Node2D"]
 position = Vector2(-1, 0)
 script = ExtResource("1_o5vv5")
@@ -219,7 +196,7 @@ position = Vector2(1, 0)
 script = SubResource("GDScript_frqgn")
 
 [node name="Didi" parent="." instance=ExtResource("2_npfcx")]
-position = Vector2(602, 129)
+position = Vector2(342, 261)
 script = ExtResource("4_nkngb")
 
 [node name="Camera2D" type="Camera2D" parent="Didi"]
@@ -229,10 +206,11 @@ position_smoothing_enabled = true
 
 [node name="diaenoite" type="ColorRect" parent="Didi/Camera2D"]
 self_modulate = Color(0.956863, 0.607843, 0, 0)
+z_index = 5
 offset_left = -357.0
-offset_top = -171.0
+offset_top = -208.0
 offset_right = 360.0
-offset_bottom = 182.0
+offset_bottom = 223.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Didi/Camera2D/diaenoite"]
 root_node = NodePath("../../../..")
@@ -302,20 +280,6 @@ animation = &"balde_cheio"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plantações/balde-legumes"]
 shape = SubResource("CircleShape2D_8bev1")
-
-[node name="Cenário_animações" type="Node" parent="."]
-
-[node name="pedra-agua" type="AnimatedSprite2D" parent="Cenário_animações"]
-position = Vector2(584, 344)
-sprite_frames = SubResource("SpriteFrames_6adoh")
-autoplay = "default"
-frame_progress = 0.518832
-
-[node name="pedra-agua2" type="AnimatedSprite2D" parent="Cenário_animações"]
-position = Vector2(561, 358)
-sprite_frames = SubResource("SpriteFrames_6adoh")
-autoplay = "default"
-frame_progress = 0.553922
 
 [connection signal="body_entered" from="Plantações/tomate" to="Plantações/tomate" method="_on_body_entered"]
 [connection signal="body_exited" from="Plantações/tomate" to="Plantações/tomate" method="_on_body_exited"]
