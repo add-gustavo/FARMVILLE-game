@@ -161,7 +161,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drtcb"]
-size = Vector2(11, 3)
+size = Vector2(11, 2)
 
 [node name="Didi" type="CharacterBody2D"]
 z_index = 1
@@ -173,5 +173,5 @@ animation = &"parado"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
-position = Vector2(1.5, 9.5)
+position = Vector2(1.5, 10)
 shape = SubResource("RectangleShape2D_drtcb")

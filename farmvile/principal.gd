@@ -15,14 +15,8 @@ func _process(_delta: float) -> void:
 		add_child(instance)
 		pass
 		
-	if Input.is_action_just_pressed("E"):
+	if Input.is_action_just_pressed("space") and Dados.semente_abobora > 0 and Canteiro.trava_terra == 1 and Abobora.trava_planta == 0:
 		var instance = abobora.instantiate()
-		instance.position = $Didi.position
-		add_child(instance)
-		pass
-		
-	if Input.is_action_just_pressed("E"):
-		var instance = tomate.instantiate()
 		instance.position = $Didi.position
 		add_child(instance)
 		pass
